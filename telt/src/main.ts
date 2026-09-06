@@ -40,17 +40,18 @@ canvas.width = COLS * 30;
 canvas.height = ROWS * 30;
 
 const MENU_BUTTONS: Record<GameMode, [number, number, number, number]> = {
-  normal: [90, 230, 120, 40],
-  sand: [90, 285, 120, 40],
+  normal: [72, 184, 96, 32],
+  sand: [72, 228, 96, 32],
 };
 
 const GAMEOVER_BUTTONS: Record<
   "restart" | "menu",
   [number, number, number, number]
 > = {
-  restart: [105, 315, 90, 36],
-  menu: [80, 360, 140, 36],
+  restart: [84, 252, 72, 29],
+  menu: [64, 288, 112, 29],
 };
+
 
 const game = createGameModel();
 let hoveredButton: HoveredButton = null;
