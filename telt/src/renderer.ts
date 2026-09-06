@@ -51,7 +51,18 @@ export function drawBoard(
 
   if (game.phase === "gameover") {
     drawGameOver(ctx, game.score, hoveredButton);
+    return;
   }
+
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "400 22px Oswald, sans-serif";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "top";
+  ctx.fillText(
+    `Score: ${game.score}`,
+    (COLS * CELL_SIZE) / 2,
+    8,
+  );
 }
 
 function drawNormalGame(
