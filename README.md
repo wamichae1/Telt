@@ -1,30 +1,18 @@
 # Telt
 
-> Tetris that melts into sand.
-
 Telt is a Tetris-inspired browser game where falling blocks can crumble into individual sand particles.
 
-Instead of simply clearing completed rows, **Sand Mode** turns placed pieces into a cellular-automata-style simulation. Particles fall, pile up, and interact with other particles, creating a more chaotic version of traditional Tetris.
+There are 2 gamemodes: Classic Tetris and a version where each block crumbles into sand particles
 
-## Features
+## Build Process
 
-* **Normal Mode** — classic falling-block gameplay
-* **Sand Mode** — blocks crumble into simulated sand
-* Color-based sand particles
-* Falling and settling particle simulation
-* Matching-color clearing mechanic
-* Animated clear effects
-* Keyboard and mouse controls
-* Chrome extension support
+The project is almost fully built in TypeScript, with rendering the board handled through Canvas API. The extension contains the tetris physics and mechanics in the `board.ts` (renders the board), `pieces.ts` (piece spawning and rotation), `game.ts` (game loop), `renderer.ts` (draws each fram of the canvas), and `main.ts` (which connects the canvas to start the game).
 
-## Tech Stack
+`sand.ts` covers the particle simulation for the sand gamemode, where the pieces break apart. This is what determines how the sand grains fall and interact with surrounding particles. The color end to end detection is also here. 
 
-* TypeScript
-* Vite
-* HTML Canvas
-* CSS
-* Custom particle simulation
-* Chrome Extensions Manifest V3
+## Stack
+
+Built with TypeScript and Vite, rendered on an HTML canvas, packaged as a Chrome extension (Manifest V3). 
 
 ## Running Locally
 
@@ -79,8 +67,6 @@ Traditional Tetris-style gameplay. Move and rotate falling pieces, complete line
 ### Sand
 
 Placed pieces break apart into individual particles. The particles fall and settle according to the simulation, while connected matching colors can trigger clears.
-
-This is the core idea behind Telt: **what happens when Tetris pieces stop behaving like rigid blocks?**
 
 ## Project Structure
 
