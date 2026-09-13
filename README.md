@@ -8,7 +8,20 @@ There are 2 gamemodes: Classic Tetris and a version where each block crumbles in
 
 The project is almost fully built in TypeScript, with rendering the board handled through Canvas API. The extension contains the tetris physics and mechanics in the `board.ts` (renders the board), `pieces.ts` (piece spawning and rotation), `game.ts` (game loop), `renderer.ts` (draws each fram of the canvas), and `main.ts` (which connects the canvas to start the game).
 
-`sand.ts` covers the particle simulation for the sand gamemode, where the pieces break apart. This is what determines how the sand grains fall and interact with surrounding particles. The color end to end detection is also here. 
+`board.ts` just has the conventional Tetris grid. The board stores data on each cell, checking if they are empty or have a block occupying the space. It's not responsible for drawing pieces, which is left for `renderer.ts`
+
+`pieces.ts` contains all the info for each tetris piece. Here we define what type, shape, color, position and rotation pieces that fall from the top have. Both normal mode and sand mode use the same pieces, so they both come from here.
+
+`game.ts` contains all the rules and phases of the game. The file contains all the data about what should happen beyond the game itself: gamemodes, win/lose, menus and changing the grid based on which mode is being played. 
+
+`main.ts` connects the HTML to all the other typescript files of the game. In handles player input and some animation loops.
+
+`renderer.ts` covers the drawing for the game, drawing the different screens and the different gamemodes.
+
+`sand.ts` covers the particle simulation for the sand gamemode, where the pieces break apart. This is what determines how the sand grains fall and interact with surrounding particles. The color end to end detection to clear the colors for the sand gamemode is also here. This portion uses some ai as it was relatively difficult to implement on my own.
+
+The chrome extension is built originally like a webapp using Vite and then packaged into `/dist` for a chrome extension.  `npm run build` bundles the application to generate the production files for the `/dist` which I then unpacked onto chrome and submitted it for review. After a few days, they accepted my extension! (Keep in mind it costs 5$ to create a dev account for chrome extensions.)
+
 
 ## Stack
 
